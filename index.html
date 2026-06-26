@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#211b15" />
+  <meta name="description" content="可互動的 3D《清明上河圖》北宋汴京城市生活場景。" />
+  <title>3D 清明上河圖｜北宋汴京沉浸式城市</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="loading" class="loading" role="status" aria-live="polite">
+    <div class="seal">汴</div>
+    <h1>清明上河圖 · 3D</h1>
+    <p id="loadingText">正在建造北宋汴京城……</p>
+    <div class="loading-bar"><span></span></div>
+  </div>
+
+  <canvas id="scene" aria-label="3D 清明上河圖互動場景"></canvas>
+
+  <header class="hud topbar">
+    <div>
+      <p class="eyebrow">北宋 · 汴京 · 汴河</p>
+      <h1>清明上河圖 3D</h1>
+    </div>
+    <button id="menuButton" class="icon-button" aria-label="開啟或關閉控制說明" aria-expanded="false">☰</button>
+  </header>
+
+  <aside id="infoPanel" class="hud info-panel" aria-hidden="true">
+    <h2>遊覽方式</h2>
+    <p><strong>拖曳：</strong>轉動視角</p>
+    <p><strong>滾輪／雙指：</strong>拉近及拉遠</p>
+    <p><strong>W A S D／方向鍵：</strong>沿街移動</p>
+    <p><strong>Shift：</strong>加速移動</p>
+    <hr />
+    <p class="small">場景為程序生成的教育展示原型，人物、船隻、動物與水面會持續活動。</p>
+  </aside>
+
+  <nav class="hud controls" aria-label="場景控制">
+    <button id="tourButton" class="primary">暫停導覽</button>
+    <button id="viewButton">自由遊覽</button>
+    <button id="soundButton" aria-pressed="false">環境聲：關</button>
+    <button id="qualityButton">畫質：高</button>
+  </nav>
+
+  <section class="hud location-card" aria-live="polite">
+    <span id="locationKicker">第一景</span>
+    <strong id="locationTitle">汴河晨霧</strong>
+    <p id="locationDescription">貨船沿河而行，城市在柔和晨光中甦醒。</p>
+  </section>
+
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="errorBox" class="error-box" hidden></div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
